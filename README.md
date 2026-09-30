@@ -20,7 +20,8 @@ dcaptcha — это легковесный и высокопроизводите
         └── dcaptcha.js   # Фронтенд-скрипт (динамическая инициализация window.ddgcaptcha)
 ```
 ------------------------------
-## 🛠️ Установка и развертывание## 1. Загрузка исходного кода
+## 🛠️ Установка и развертывание
+## 1. Загрузка исходного кода
 Перейдите в каталог плагинов вашего сервера и склонируйте репозиторий (или распакуйте архив):
 ```
 cd /var/www/html/snappymail/data/_data_/_default_/plugins/
@@ -33,8 +34,9 @@ sudo chown -R snappy:snappy /var/www/html/snappymail/data/_data_/_default_/plugi
 sudo find dcaptcha/ -type d -exec chmod 750 {} \;
 sudo find dcaptcha/ -type f -exec chmod 640 {} \;
 # Восстановление контекстов SELinux для папки данных
+```
 sudo restorecon -Rv /var/www/html/snappymail/data/_data_/_default_/plugins/dcaptcha/
-``
+```
 ## 3. Разрешение исходящих соединений
 Если вы еще не делали этого, разрешите процессам веб-сервера инициировать внешние сокеты в SELinux (критично для связи с API DDoS-Guard):
 ```
