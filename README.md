@@ -33,6 +33,7 @@ git clone https://github.com/pdenisp/dcaptcha.git
 sudo chown -R snappy:snappy /var/www/html/snappymail/data/_data_/_default_/plugins/dcaptcha/
 sudo find dcaptcha/ -type d -exec chmod 750 {} \;
 sudo find dcaptcha/ -type f -exec chmod 640 {} \;
+```
 # Восстановление контекстов SELinux для папки данных
 ```
 sudo restorecon -Rv /var/www/html/snappymail/data/_data_/_default_/plugins/dcaptcha/
