@@ -35,10 +35,6 @@ class DcaptchaPlugin extends \RainLoop\Plugins\AbstractPlugin
 				->SetDefaultValue(''),
 			\RainLoop\Plugins\Property::NewInstance('private_key')->SetLabel('Secret key')
 				->SetDefaultValue(''),
-			//\RainLoop\Plugins\Property::NewInstance('theme')->SetLabel('Theme')
-			//	->SetAllowedInJs(true)
-			//	->SetType(\RainLoop\Enumerations\PluginPropertyType::SELECTION)
-			//	->SetDefaultValue(array('light', 'dark')),
 			\RainLoop\Plugins\Property::NewInstance('error_limit')->SetLabel('Limit')
 				->SetType(\RainLoop\Enumerations\PluginPropertyType::SELECTION)
 				->SetDefaultValue(array('0', 1, 2, 3, 4, 5))
