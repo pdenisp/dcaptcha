@@ -22,24 +22,24 @@ dcaptcha — это легковесный и высокопроизводите
 ------------------------------
 ## 🛠️ Установка и развертывание## 1. Загрузка исходного кода
 Перейдите в каталог плагинов вашего сервера и склонируйте репозиторий (или распакуйте архив):
-
+```
 cd /var/www/html/snappymail/data/_data_/_default_/plugins/
 git clone https://github.com/pdenisp/dcaptcha.git
-
+```
 ## 2. Настройка прав доступа и SELinux
 В соответствии с enterprise-стандартами безопасности, ограничьте права на чтение кода, выдав их вашему кастомному пользователю пула PHP (например, snappy), и обновите контексты безопасности:
-
+```
 sudo chown -R snappy:snappy /var/www/html/snappymail/data/_data_/_default_/plugins/dcaptcha/
 sudo find dcaptcha/ -type d -exec chmod 750 {} \;
 sudo find dcaptcha/ -type f -exec chmod 640 {} \;
 # Восстановление контекстов SELinux для папки данных
 sudo restorecon -Rv /var/www/html/snappymail/data/_data_/_default_/plugins/dcaptcha/
-
+``
 ## 3. Разрешение исходящих соединений
 Если вы еще не делали этого, разрешите процессам веб-сервера инициировать внешние сокеты в SELinux (критично для связи с API DDoS-Guard):
-
+```
 sudo setsebool -P httpd_can_network_connect on
-
+```
 ------------------------------
 ## ⚙️ Конфигурация## Шаг 1. Получение ключей в DDoS-Guard
 Зайдите в личный кабинет DDoS-Guard Client Area, перейдите в раздел управления капчей и сгенерируйте пару ключей:
@@ -57,10 +57,10 @@ sudo setsebool -P httpd_can_network_connect on
 
 ## Шаг 3. Сброс кэша статики
 Чтобы принудительно обновить скомпилированные шаблоны и применить JS-скрипты, выполните сброс из консоли:
-
+```
 sudo -u snappy php /var/www/html/snappymail/index.php --clear-cache
 sudo systemctl restart php-fpm
-
+```
 ------------------------------
 ## 📄 Лицензия
 Проект распространяется под лицензией MIT. Вы можете свободно использовать, модифицировать и масштабировать его в инфраструктурах любой сложности.
